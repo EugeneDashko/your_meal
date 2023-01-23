@@ -176,15 +176,55 @@
 
         .order__wrapper {
             position: unset;// unset убирает свойства
+            padding: 24px 16px;
+        }
+
+        .order__wrap-title {
+            margin-bottom: 12px;
+        }
+
+        .order__title {
+            font-size: 24px;
+        }
+
+        .order__count {
+            width: 41px;
+            height: 20px;
+            font-size: 12px;
+        }
+
+        .order__item {
+            padding: 15px 0;
+        }
+
+        .order__wrap_list {
+            display: block;
+            margin-bottom: 16px;
         }
 
         .order__close {
             display: none;
         }
 
-        .order__wrap_list {
-            display: block;
+        .order__total {
+            font-size: 16px;
+            margin-bottom: 24px;
         }
+
+        .order__submit {
+            height: 40px;
+            padding: 11px;
+            border-radius: 12px;
+            font-size: 16px;
+            margin-bottom: 8px;
+
+        }
+
+        .order__apeal {
+            font-size: 12px;
+        }
+
+
         //END================================================order
 
 
