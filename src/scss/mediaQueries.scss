@@ -1,0 +1,222 @@
+
+@media (min-width:480px) {
+    //START================================================header
+    .header {
+        background-size: 1700px;
+        padding-bottom: 44px;
+    }
+
+    .header__container {
+        max-width: 480px;
+    }
+
+    .header__title-container {
+        min-height: 190px;
+        padding-bottom: 0;
+        padding-left: 180px;
+        padding-top: 27px;
+        text-align: left;
+        background-position: left;
+        background-size: contain;
+    }
+    //END================================================header
+}
+
+@media (min-width: 768px) {
+    //START================================================header
+    .header{
+        background-size: 2540px;
+    }
+
+    .header__container {
+        max-width: calc(562px + var(--padding-container)*2);
+    }
+
+    .header__title-container {
+        padding-left: 237px; // место для bg бургер
+        min-height: 229px;
+    }
+
+    .header__title {
+        font-size: 36px;
+        margin-bottom: 26px;
+    }
+        //END================================================header
+        //START================================================navigation
+    .navigation__list {
+        column-gap: 12px;
+    }
+        //END================================================navigation
+}
+@media (min-width: 768px) {
+     .order {
+        width: 145px;
+        transition: width 0.1s ease-in-out;
+     }
+
+     .order.order_open {
+        width: 300px;
+     }
+}
+
+
+
+
+
+@media (min-width: 1024px) {
+        //START================================================header
+    .header{
+        background-size: 2880px;
+        padding-bottom: 63px;
+        margin-bottom: 40px;
+    }
+
+    .header__container {
+        max-width: calc(764px + var(--padding-container)*2);
+    }
+
+    .header__title-container {
+        padding-top: 46px;
+        padding-left: 326px; // место для bg бургер
+        min-height: 326px;
+    }
+
+    .header__title {
+        font-size: 50px;
+        margin-bottom: 52px;
+    }
+
+    .header__appeal {
+        font-size: 16px;
+        line-height: 22px;
+    }
+        //END================================================header
+        //START================================================navigation
+    .navigation {
+        margin-bottom: 50px;
+    }
+    .navigation__list {
+        column-gap: 24px;
+    }
+    .navigation__button {
+        padding: 9px 14px  9px 46px;
+        font-size: 16px;
+        line-height: 22px;
+        background-position: 14px center;
+
+    }
+        //END================================================navigation
+        //START================================================product
+         .product {
+            padding: 12px;
+            border-radius: 18px;
+            min-height: 411px;
+        }
+
+        .product__image {
+            height: 220px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+        .product__price {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        .product__title {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .product__weight {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .product__add {
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 16px;
+        }
+        //END================================================product
+
+        //START================================================catalog
+
+        .catalog {
+            margin-bottom: 100px;
+        }
+
+        .catalog__list {
+            grid-template-columns: repeat(auto-fit, 300px);
+            gap: 30px;
+        }
+
+        .catalog__wrapper {
+            flex-grow: 1; // занимай все свободное пространство
+        }
+
+        .catalog__title {
+            font-weight: 400;
+            margin-bottom: 24px;
+        }
+
+        .catalog__container {
+            display: flex;
+            gap: 30px;
+        }
+
+        .catalog__order {
+            padding-top: 72px;
+        }
+        //END================================================catalog
+        //START================================================order
+
+        .order {
+            width:300px;
+        }
+
+        .order__wrapper {
+            position: unset;// unset убирает свойства
+        }
+
+        .order__close {
+            display: none;
+        }
+
+        .order__wrap_list {
+            display: block;
+        }
+        //END================================================order
+
+
+
+}
+
+
+
+
+
+
+
+@media (min-width: 1360px) {
+        //START================================================header
+    .header__container {
+        max-width: calc(784px + var(--padding-container)*2);
+    }d
+
+    .header__title-container {
+        padding-left: 346px; // место для bg бургер
+    }
+        //END================================================header
+}
+
+@media (min-width: 1920px) {
+        //START================================================header
+    .header{
+        background-size: 4660px;
+    }
+        //END================================================header
+}
+
+
+
+

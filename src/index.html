@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/head.html',{
+  "title": "YourMeal - самые сочные бургеры"
+})
+<body>
+  <main>
+    @@include('html/header.html',{})
+    @@include('html/navigation.html',{})
+    @@include('html/catalog.html',{})
+  </main>
+  <!-- <script src="js/app.min.js"></script> -->
+  <script>
+    document.querySelector('.order__wrap-title').addEventListener('click',() => {
+      document.querySelector('.order').classList.toggle('order_open')
+    })
+  </script>
+</body>
+</html>
