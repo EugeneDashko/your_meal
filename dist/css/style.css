@@ -498,11 +498,12 @@ body {
     outline-offset: -1px;
   }
 }
-.navigation__button .navigation__button_active {
+
+.navigation__button_active {
   pointer-events: none;
   background-color: #FFAB08;
 }
-.navigation__button .navigation__button_active:focus {
+.navigation__button_active:focus {
   outline: none;
 }
 
@@ -603,10 +604,6 @@ body {
     outline-offset: -1px;
   }
 }
-.order_open .order__wrap-title {
-  margin-bottom: 8px; /*!todo optimaze*/
-}
-
 .order__title {
   font-weight: 600;
   font-size: 16px;
@@ -661,6 +658,9 @@ body {
 
 .order__product {
   flex-grow: 1;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .order__product-title {

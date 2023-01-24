@@ -42,6 +42,9 @@
 }
 // если какой-то браузер не поддерживает focus-visible:
 
+
+}
+
 .navigation__button_active {
     pointer-events: none; // по активной кнопке нельзя нажать, не будет работь клик и фокус
     background-color: #FFAB08;
@@ -49,7 +52,6 @@
             outline: none;
         }
     }
-}
 
 .navigation__button_burger{
     background-image: url('@img/burger.png');

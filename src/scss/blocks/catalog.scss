@@ -62,7 +62,7 @@
 
 
 .order_open .order__wrap-title {
-    margin-bottom: 8px;           /*!todo optimaze*/
+    // margin-bottom: 8px;           /*!todo optimaze*/
 }
 
 .order__title {
@@ -121,9 +121,13 @@
 
 .order__product {
     flex-grow: 1;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
 
 }
 .order__product-title {
+
     font-weight: 400;
     margin-bottom: 1px;
 }
@@ -132,9 +136,6 @@
     margin-bottom: 6px;
 }
 .order__product-price {
-
-}
-.order__product-count {
 
 }
 

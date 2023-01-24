@@ -232,7 +232,11 @@
   <script>
     document.querySelector('.order__wrap-title').addEventListener('click',() => {
       document.querySelector('.order').classList.toggle('order_open')
-    })
+    });
+
+    document.querySelector('.order__close').addEventListener('click', () => {
+      document.querySelector('.order').classList.toggle('order_open')
+    } )
   </script>
 </body>
 </html>
