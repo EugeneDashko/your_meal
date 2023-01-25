@@ -31,6 +31,11 @@ body {
     overflow-x: hidden;
 }
 
+
+
+
+
+
 @media (min-width: 480px) {
     html {
         --container: 640px;
@@ -62,6 +67,7 @@ body {
 @import "blocks/count";
 @import "blocks/product";
 @import "blocks/footer";
+@import "blocks/modal";
 
 @import "mediaQueries";
 
