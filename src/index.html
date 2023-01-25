@@ -9,15 +9,7 @@
     @@include('html/navigation.html',{})
     @@include('html/catalog.html',{})
   </main>
-  <!-- <script src="js/app.min.js"></script> -->
-  <script>
-    document.querySelector('.order__wrap-title').addEventListener('click',() => {
-      document.querySelector('.order').classList.toggle('order_open')
-    });
-
-    document.querySelector('.order__close').addEventListener('click', () => {
-      document.querySelector('.order').classList.toggle('order_open')
-    } )
-  </script>
+    @@include('html/footer.html',{})
+  <script src="js/app.min.js"></script>
 </body>
 </html>

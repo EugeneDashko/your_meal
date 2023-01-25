@@ -20,6 +20,19 @@
         background-size: contain;
     }
     //END================================================header
+    //START================================================footer
+    .footer__logo {
+        margin-bottom: 36px;
+    }
+    .footer__address {
+        flex-direction: row;
+        margin-bottom: 40px;
+    }
+
+    .footer__contact {
+        flex-grow: 1; // два элемента и они должны занимать одинаковое пространство
+    }
+     //END================================================footer
 }
 
 @media (min-width: 768px) {
@@ -42,22 +55,33 @@
         margin-bottom: 26px;
     }
         //END================================================header
+        //START================================================order
+        .order {
+            width: 145px;
+            transition: width 0.1s ease-in-out;
+         }
+    
+         .order.order_open {
+            width: 300px;
+         }
+        //END================================================order
         //START================================================navigation
     .navigation__list {
         column-gap: 12px;
     }
         //END================================================navigation
-}
-@media (min-width: 768px) {
-     .order {
-        width: 145px;
-        transition: width 0.1s ease-in-out;
-     }
+        //START================================================footer
+    .footer__logo {
+        margin-bottom: 36px;
+    }
+    .footer__address {
+        flex-direction: row;
+        margin-bottom: 40px;
+    }
 
-     .order.order_open {
-        width: 300px;
-     }
+         //END================================================footer
 }
+
 
 
 
@@ -221,6 +245,47 @@
             font-size: 12px;
         }
         //END================================================order
+          //START================================================footer
+        .footer__content {
+            display: grid;
+            grid-template-areas: 
+            'logo address'
+            'development .';
+            gap: 35px;
+        }
+
+        .footer__logo {
+            width: 300px;
+            margin-bottom: 0;
+            grid-area: logo;
+        }
+        .footer__address {
+            margin-bottom: 0;
+            grid-area: address;
+            gap: 50px;
+            justify-content: flex-end;
+        }
+
+        .footer__contact {
+            flex-grow: unset; // отменяем 1;
+        }
+
+        .footer__development {
+            grid-area: development;
+        }
+
+        .footer__title {
+            margin-bottom: 24px;
+            font-size: 24px;
+        }
+        .footer__title_sn {
+            margin-bottom: 22px;
+        }
+
+        .footer__link-phone {
+            font-size: 16px;
+        }
+        //END================================================footer
 }
 
 
@@ -239,6 +304,21 @@
         padding-left: 346px; // место для bg бургер
     }
         //END================================================header
+        //START================================================footer
+        .footer__content {
+            grid-template-columns: 1fr 1fr;
+            gap: 35px 30px;
+        }
+
+        .footer__address {
+            justify-content: flex-start;
+        }
+
+        .footer__contact {
+            flex-grow: 1;
+
+        }
+        //END================================================footer
 }
 
 @media (min-width: 1920px) {
