@@ -34,6 +34,105 @@
 .modal-product {
     background-color: #fff;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     padding: 32px 10px;
+    display: flex;
+}
+
+.modal-product__container {
+    max-width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-product__title {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 120%;
+    margin-bottom: 12px;
+}
+
+.modal-product__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.modal-product__image {
+    width: 100%;
+    border-radius: 16px;
+    margin-bottom: 16px;
+}
+
+.modal-product__description {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
+    margin-bottom: 10px;
+}
+
+.ingredients__title {
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 130%;
+    margin-bottom: 4px;
+}
+
+.ingredients__list {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 130%;
+    margin-bottom: 4px;
+}
+
+.ingredients__item {
+    margin-bottom: 2px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+}
+
+.ingredients__calories {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 130%;
+    color: #B1B1B1;
+} 
+
+.modal-product__ingredients {
+    flex-grow: 1;
+    margin-bottom: 10px;
+}
+
+.modal-product__add {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+.modal-product__btn {
+    flex-grow: 1;
+    background-color: #FF7020;
+    text-align: center;
+    padding: 9px 0;
+    border-radius: 8px;
+    margin-right: 8px;
+    margin-bottom: 16px;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    color: #FFFFFF;
+}
+
+
+.modal-product__count {
+
+}
+.modal-product__price {
+    text-align: right;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 130%;
+    color: #000000;
 }
