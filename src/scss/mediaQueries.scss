@@ -160,7 +160,7 @@
 
 
 @media (min-width: 1024px) {
-        //START================================================header
+        //START================================================header -1024
     .header{
         background-size: 2880px;
         padding-bottom: 63px;
@@ -186,8 +186,8 @@
         font-size: 16px;
         line-height: 22px;
     }
-        //END================================================header
-        //START================================================navigation
+        //END================================================header -1024
+        //START================================================navigation -1024
     .navigation {
         margin-bottom: 50px;
     }
@@ -200,8 +200,8 @@
         line-height: 22px;
         background-position: 14px center;
     }
-        //END================================================navigation
-        //START================================================product
+        //END================================================navigation -1024
+        //START================================================product -1024
          .product {
             padding: 12px;
             border-radius: 18px;
@@ -232,8 +232,8 @@
             border-radius: 12px;
             font-size: 16px;
         }
-        //END================================================product
-        //START================================================catalog
+        //END================================================product -1024
+        //START================================================catalog -1024
 
         .catalog {
             margin-bottom: 100px;
@@ -261,8 +261,8 @@
         .catalog__order {
             padding-top: 72px;
         }
-        //END================================================catalog
-        //START================================================order
+        //END================================================catalog -1024
+        //START================================================order -1024
 
         .order {
             width:300px;
@@ -316,8 +316,8 @@
         .order__apeal {
             font-size: 12px;
         }
-        //END================================================order
-          //START================================================footer
+        //END================================================order -1024
+          //START================================================footer -1024
         .footer__content {
             display: grid;
             grid-template-areas: 
@@ -357,8 +357,8 @@
         .footer__link-phone {
             font-size: 16px;
         }
-        //END================================================footer
-        //START================================================MODAL
+        //END================================================footer -1024
+        //START================================================MODAL -1024
         .ingredients__title,
         .ingredients__list,
         .ingredients__calories {
@@ -393,20 +393,20 @@
         .modal-product__price {
             font-size: 24px;
         }
-        //END================================================MODAL
-         //START================================================MODAL FORM- 480px
+        //END================================================MODAL -1024
+         //START================================================MODAL FORM -1024
         .modal-delivery {
-            min-width: 524px;
+            min-width: 684px;
             min-height: auto; //не ограничиваем
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
             border-radius: 24px;
-            padding: 20px 16px 29px;
+            padding: 24px 24px 24px 50%;
         }
 
         .modal-delivery__container {
             margin-left: 0;
         }
-        //END================================================MODAL FORM- 480px
+        //END================================================MODAL FORM -1024
 }
 
 
