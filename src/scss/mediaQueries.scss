@@ -94,7 +94,7 @@
     //END================================================MODAL- 480px
     //START================================================MODAL FORM- 480px
     .modal-delivery {
-        min-width: 524px;
+        max-width: 524px;
         min-height: auto; //не ограничиваем
         box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
         border-radius: 24px;
@@ -104,6 +104,8 @@
     .modal-delivery__container {
         margin-left: 0;
     }
+
+    
      //END================================================MODAL FORM- 480px
 }
 
@@ -395,16 +397,50 @@
         }
         //END================================================MODAL -1024
          //START================================================MODAL FORM -1024
-        .modal-delivery {
-            min-width: 684px;
-            min-height: auto; //не ограничиваем
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 24px;
-            padding: 24px 24px 24px 50%;
+         
+        .modal {
+            padding: 20px;
         }
 
-        .modal-delivery__container {
-            margin-left: 0;
+        .modal-delivery {
+            max-width: 684px;
+            padding: 44px 24px 24px 366px;
+            background: url('@img/donut.svg') 19px center, linear-gradient(to right, #FFAB08 50%, #fff 50%); // градиет (последння) вегда располагается ниже donuta
+            background-size: 302px, auto; // 302 - для первой картинки, auto - для второй картинки
+            background-repeat: no-repeat;
+        }
+
+        .modal-delivery__title {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .modal-delivery__form {
+            margin-bottom: 32px;
+            gap: 16px;
+        }
+
+        .modal-delivery__input {
+            font-size: 12px;
+            padding: 10px 12px; //немного скорректировали от макета
+            height: 40px;
+        }
+
+        .modal-delivery__label {
+            font-size: 12px;
+        }
+
+        .modal-delivery__fieldset_radio {
+            gap: 12px;
+        }
+
+        .modal-delivery__submit {
+            font-size: 16px;
+        }
+
+        .modal__close {
+            top: 24px;
+            right: 24px;
         }
         //END================================================MODAL FORM -1024
 }
