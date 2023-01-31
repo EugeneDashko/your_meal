@@ -24,11 +24,20 @@
     right: 10px;
     outline: 1px solid transparent;
     outline-offset: 3px;
+    border-radius: 3px;
+    transition: color .3s ease-in-out;
         &:focus-visible { //стили для фокуса
             color: #FF7020;
-            outline-color: #FF7020 ;
-            border-radius: 3px;
+            outline-color: #FF7020;
         }
+        &:hover {
+            color: #FF7020;
+        }
+
+
+
+
+
 }
 
 .modal-product {
@@ -126,9 +135,6 @@
 }
 
 
-.modal-product__count {
-
-}
 .modal-product__price {
     text-align: right;
     font-weight: 600;
@@ -257,9 +263,33 @@
     border-radius: 8px;
     margin-right: 8px;
     margin-bottom: 16px;
-
+    
     font-weight: 400;
     font-size: 12px;
     line-height: 100%;
     color: #FFFFFF;
+    transition: transform .1s ease, background-color .3s ease-in-out;
+}
+
+.modal-delivery__submit:hover {
+    background-color: #FFAB08;;
+}
+
+.modal-delivery__submit:focus-visible { //tab
+    background-color: #F86310;
+}
+
+.modal-delivery__submit:active {
+    transform: translate(1px, 2px);
+}
+
+.modal-delivery__submit:disabled {
+    color: #ACACAC;
+    background-color: #F9F9F9;
+}
+
+@supports not selector(:focus-visible) {
+    .modal-delivery__submit:focus {
+        background-color: #F86310;
+    }
 }
