@@ -161,6 +161,27 @@
     font-size: 12px;
     line-height: 100%;
     color: #FFFFFF;
+
+    transition: transform .1s ease, background-color .3s ease-in-out;
+    &:hover {
+        background-color: #FFAB08;
+    }
+    &:focus-visible { //tab
+        background-color: #F86310;
+    }
+    &:active {
+        transform: translate(1px, 2px);
+    }
+    &:disabled {
+        color: #ACACAC;
+        background-color: #F9F9F9;
+    }
+
+    @supports not selector(:focus-visible) {
+        .modal-delivery__submit:focus {
+            background-color: #F86310;
+        }
+    }
 }
 
 .order__wrap-apeal {

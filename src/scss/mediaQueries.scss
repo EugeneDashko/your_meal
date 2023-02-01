@@ -277,6 +277,11 @@
 
         .order__wrap-title {
             margin-bottom: 12px;
+            pointer-events: none;
+            &::after {
+                content: none;
+            }
+
         }
 
         .order__title {
@@ -318,6 +323,8 @@
         .order__apeal {
             font-size: 12px;
         }
+
+
         //END================================================order -1024
           //START================================================footer -1024
         .footer__content {

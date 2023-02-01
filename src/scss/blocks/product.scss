@@ -5,6 +5,7 @@
     border-radius: 12px;
     background: #FFF;
     min-height: 243px;
+    position: relative;
 }
 
 .product__image {
@@ -30,6 +31,26 @@
 }
 .product_detail {
     outline: none; //todo outline
+        &:hover, &:focus {
+            color: #F86310;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            outline: 1px solid transparent;
+            border-radius: 12px;
+
+        }
+
+        &:focus-visible {
+          color: #F86310;
+        }
+
+        &:focus-visible:after {
+            outline-color: #F86310;
+        }
 }
 .product__weight {
     font-weight: 600;
@@ -46,5 +67,33 @@
 
     font-weight: 400;
     font-size: 12px;
-    line-height: 100%; //todo hover
+    line-height: 100%;
+
+    transition: transform .1s ease, background-color .3s ease-in-out;
+        &:hover {
+            background-color: #FFAB08;
+        }
+        &:focus-visible { //tab
+            background-color: #F86310;
+        }
+        &:active {
+            transform: translate(1px, 2px);
+        }
+        &:disabled {
+            color: #ACACAC;
+            background-color: #F9F9F9;
+        }
+
+        @supports not selector(:focus-visible) {
+            .modal-delivery__submit:focus {
+                background-color: #F86310;
+            }
+        }
 }
+
+
+
+
+
+
+

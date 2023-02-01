@@ -30,6 +30,10 @@
     gap: 4px;
     font-size: 12px;
     line-height: 130%;
+    transition: transform .1s ease, color .2s ease-in-out;
+        &:hover,&:focus {
+            color: #FFAB08;
+        }
 }
 
 
@@ -38,8 +42,16 @@
     gap: 16px;
 }
 
+.footer__list-item {
+
+}
+
 .footer__link-sn {
     color: #FF7020;
+    transition: transform .1s ease, color .3s ease-in-out;
+        &:hover,&:focus {
+            color: #FFAB08;
+        }
 }
 
 .footer__development {
