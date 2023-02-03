@@ -68,5 +68,3 @@ modalProduct.addEventListener('click', (event) => {
   modalProductDescription.textContent = product.description;
   ingredientsCalories.textContent = `${product.weight}г ккал ${product.calories}`;
   modalProductPriceCount.textContent = product.price;
-
-
