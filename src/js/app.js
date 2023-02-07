@@ -1,9 +1,10 @@
 import * as flsFunction from "./modules/functions.js"
-
 flsFunction.isWebp();
 
-import {modalProduct,catalogList} from "./elements.js";
 
+
+
+import {modalProduct,catalogList} from "./elements.js";
 import { createCardProduct } from "./createCardProduct.js";
 import { openModal } from "./openModal.js";
 import { renderListProduct } from "./renderListProduct.js";
