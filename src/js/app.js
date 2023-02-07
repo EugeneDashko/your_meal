@@ -2,13 +2,12 @@ import * as flsFunction from "./modules/functions.js"
 
 flsFunction.isWebp();
 
-import {modalProduct,
-  catalogList,
-} from "./elements.js";
+import {modalProduct,catalogList} from "./elements.js";
 
 import { createCardProduct } from "./createCardProduct.js";
 import { openModal } from "./openModal.js";
-import {  } from "./elements.js";
+import { renderListProduct } from "./renderListProduct.js";
+import { navigationListController } from "./navigationListController.js";
 
 
   const burgerMax = {
@@ -22,18 +21,7 @@ import {  } from "./elements.js";
   }
 
 
-catalogList.textContent = '';
 
-
-const card =  [
-  createCardProduct(burgerMax),
-  createCardProduct(burgerMax),
-  createCardProduct(burgerMax),
-  createCardProduct(burgerMax),
-  createCardProduct(burgerMax),
-]
-
-catalogList.append(...card)
 
 catalogList.addEventListener('click', (event) => {
   const target = event.target;
@@ -49,3 +37,9 @@ modalProduct.addEventListener('click', (event) => {
       modalProduct.classList.remove('modal_open')
     }
   })
+
+  const init = () => {
+    renderListProduct();
+    navigationListController();
+  };
+  init();
