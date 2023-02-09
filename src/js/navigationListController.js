@@ -10,7 +10,7 @@ export const navigationListController = () => {
         navigationListItems.forEach((item) => {
             if(item === categoryItem) {
                 item.classList.add('navigation__button_active');
-                catalogTitle.innerHTML = item.innerHTML
+                catalogTitle.textContent = item.textContent
             } else {
                 item.classList.remove('navigation__button_active')
             }

@@ -5,7 +5,7 @@ import { getData } from "./getData.js"
 
 export const renderListProduct = async () => {
     catalogList.textContent = '';
-    const listProduct = await getData(`${API_URL}${PREFIX_PRODUCT}`);
-    const listCard = listProduct.map(createCardProduct)
+    const listProduct = await getData(`${API_URL}${PREFIX_PRODUCT}`); //получаю массив данных с сервера
+    const listCard = listProduct.map(createCardProduct)// в item попадет product из createCardProduct
     catalogList.append(...listCard);
 }

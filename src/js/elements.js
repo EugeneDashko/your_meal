@@ -10,4 +10,3 @@ export const modalProductPriceCount = document.querySelector('.modal-product__pr
 export const navigationList = document.querySelector('.navigation__list');
 export const navigationListItems = document.querySelectorAll('.navigation__button');
 export const catalogTitle = document.querySelector('.catalog__title');
-console.log(catalogTitle)

@@ -5,7 +5,6 @@ flsFunction.isWebp();
 
 
 import {modalProduct,catalogList} from "./elements.js";
-import { createCardProduct } from "./createCardProduct.js";
 import { openModal } from "./openModal.js";
 import { renderListProduct } from "./renderListProduct.js";
 import { navigationListController } from "./navigationListController.js";
@@ -20,10 +19,7 @@ import { navigationListController } from "./navigationListController.js";
     image: '/img/megaburger.jpg',
     ingredients: ['Пшеничная булочка','Мега котлета из говядины', 'Много сыра', 'Листья салата', 'Чипотл']
   }
-
-
-
-
+  
 catalogList.addEventListener('click', (event) => {
   const target = event.target;
   if (target.closest('.product_detail') || target.closest('.product__image')) {
