@@ -1,8 +1,8 @@
 import { API_URL } from "./const.js";
 //создаем карточки из базы данных:
-export const createCardProduct = (product) => {
-    const li = document.createElement('li');
-    li.classList.add('catalog__item');
+export const createCardProduct = (product) => { // в продукт попадет массив listProduct
+    const li = document.createElement('li'); // создаю li элмент
+    li.classList.add('catalog__item');// добавляю класс li элементу
 
     li.innerHTML = `
       <article class="product">
