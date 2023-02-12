@@ -16,18 +16,19 @@ import { navigationListController } from "./navigationListController.js";
     ingredients: ['Пшеничная булочка','Мега котлета из говядины', 'Много сыра', 'Листья салата', 'Чипотл']
   }
   const closeModal = (e) => {
+    console.log(e)
     if(e.key == 'Escape') {
     modalProduct.classList.remove('modal_open');
-    document.removeEventListener('keydown', closeModal);
+    document.removeEventListener('keydown', closeModal);// после события удаляю слушателя
     }
   }
- 
-  
+
+
 catalogList.addEventListener('click', (event) => {
   const target = event.target;
   if (target.closest('.product_detail') || target.closest('.product__image')) {
     openModal(burgerMax);
-    document.addEventListener('keydown', closeModal)
+    document.addEventListener('keydown', closeModal) // добавляю слушатель на клавиатуру
   }
 });
 
