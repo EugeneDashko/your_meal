@@ -1,39 +1,37 @@
 import * as flsFunction from "./modules/functions.js"
 flsFunction.isWebp();
+//============================================================================================
 
 import {modalProduct,catalogList} from "./elements.js";
 import { openModal } from "./openModal.js";
 import { renderListProduct } from "./renderListProduct.js";
 import { navigationListController } from "./navigationListController.js";
 
-  const burgerMax = {
-    title: 'Бургер Макс',
-    price: 10000,
-    weight: 5000,
-    calories: 15000,
-    description: 'Огромный бургер, съешь сам или поделись с компанией',
-    image: '/img/megaburger.jpg',
-    ingredients: ['Пшеничная булочка','Мега котлета из говядины', 'Много сыра', 'Листья салата', 'Чипотл']
-  }
+
+
+
+// добавляю закрытие модального по клавиши Escape
   const closeModal = (e) => {
     if(e.key == 'Escape') {
     modalProduct.classList.remove('modal_open');
-    document.removeEventListener('keydown', closeModal);// после события удаляю слушателя
+    document.removeEventListener('keydown', closeModal);// после события удаляю слушателя на клавиатуре
     }
   }
 
 
-catalogList.addEventListener('click', (event) => {
-  const target = event.target;
-  if (target.closest('.product_detail') || target.closest('.product__image')) {
+// наверишваем слушателя на каталог
+catalogList.addEventListener('click', (e) => {
+  const target = e.target;
+  if (target.closest('.product_detail') || target.closest('.product__image')) { // если  картинка или детали
     const id= target.closest('.product').dataset.idProduct; // получаю id по кликнутому элемету (читать про dataset)
+    console.log(id)
     openModal(id);
     document.addEventListener('keydown', closeModal) // добавляю слушатель на клавиатуру
   }
 });
 
-modalProduct.addEventListener('click', (event) => {
-    const target = event.target
+modalProduct.addEventListener('click', (e) => {
+    const target = e.target
     if (target.closest('.modal__close') || target === modalProduct  ) {
       modalProduct.classList.remove('modal_open')
     }
