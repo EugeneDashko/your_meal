@@ -16,7 +16,6 @@ import { navigationListController } from "./navigationListController.js";
     ingredients: ['Пшеничная булочка','Мега котлета из говядины', 'Много сыра', 'Листья салата', 'Чипотл']
   }
   const closeModal = (e) => {
-    console.log(e)
     if(e.key == 'Escape') {
     modalProduct.classList.remove('modal_open');
     document.removeEventListener('keydown', closeModal);// после события удаляю слушателя
@@ -27,7 +26,8 @@ import { navigationListController } from "./navigationListController.js";
 catalogList.addEventListener('click', (event) => {
   const target = event.target;
   if (target.closest('.product_detail') || target.closest('.product__image')) {
-    openModal(burgerMax);
+    const id= target.closest('.product').dataset.idProduct; // получаю id по кликнутому элемету (читать про dataset)
+    openModal(id);
     document.addEventListener('keydown', closeModal) // добавляю слушатель на клавиатуру
   }
 });
@@ -41,7 +41,7 @@ modalProduct.addEventListener('click', (event) => {
 
   const init = () => {
     renderListProduct();
-    navigationListController();
+    navigationListController(renderListProduct);
   };
   init();
 
