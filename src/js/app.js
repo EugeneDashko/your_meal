@@ -6,7 +6,7 @@ import {modalProduct,catalogList} from "./elements.js";
 import { openModal } from "./openModal.js";
 import { renderListProduct } from "./renderListProduct.js";
 import { navigationListController } from "./navigationListController.js";
-
+import { cardInit } from "./card.js";
 
 
 
@@ -40,6 +40,7 @@ modalProduct.addEventListener('click', (e) => {
   const init = () => {
     renderListProduct();
     navigationListController(renderListProduct);
+    cardInit();
   };
   init();
 
