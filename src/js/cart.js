@@ -5,7 +5,7 @@ import { catalogList, countAmount, modalProductBtn } from "./elements.js";
     // в localstorage хронятся только строки
     if (cartList) {
         return JSON.parse(cartList) // распарсиваем строку JSON в массив при помощи parse
-    } else {                     // елси в Localstorage ничего небыло, то возвращаем пустой массив:
+    } else {                     // если в Localstorage ничего небыло, то возвращаем пустой массив:
         return [];
     }
 };
@@ -22,8 +22,8 @@ const updateCartList = (cartList) => {
 };
 
 const addCart = (id, count = 1) => {
-    console.log(id, count);
     const cartList = getCart();
+    console.log('cartList: ', cartList);
     const product = cartList.find((item) => item.id === id)
     if(product) {
         product.count += count //product.count = product.count + count
