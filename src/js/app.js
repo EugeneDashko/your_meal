@@ -6,7 +6,7 @@ import {modalProduct,catalogList} from "./elements.js";
 import { openModal } from "./openModal.js";
 import { renderListProduct } from "./renderListProduct.js";
 import { navigationListController } from "./navigationListController.js";
-import { cardInit } from "./card.js";
+import { cartInit } from "./cart.js";
 
 
 
@@ -24,7 +24,6 @@ catalogList.addEventListener('click', (e) => {
   const target = e.target;
   if (target.closest('.product_detail') || target.closest('.product__image')) { // если  картинка или детали
     const id= target.closest('.product').dataset.idProduct; // получаю id по кликнутому элемету (читать про dataset)
-    console.log(id)
     openModal(id);
     document.addEventListener('keydown', closeModal) // добавляю слушатель на клавиатуру
   }
@@ -40,7 +39,7 @@ modalProduct.addEventListener('click', (e) => {
   const init = () => {
     renderListProduct();
     navigationListController(renderListProduct);
-    cardInit();
+    cartInit();
   };
   init();
 
