@@ -1,5 +1,6 @@
-import { catalogList, countAmount, modalProductBtn } from "./elements.js";
-
+import { catalogList, countAmount, modalProductBtn, orderCount, orderList } from "./elements.js";
+import { getData } from "./getData.js";
+import { API_URL, PREFIX_PRODUCT} from "./const.js";
  const getCart = () => {
     const cartList = localStorage.getItem('cart'); // cart -идентификатор, может быть любым названием
     // в localstorage хронятся только строки (работает только с ними)
@@ -13,7 +14,41 @@ import { catalogList, countAmount, modalProductBtn } from "./elements.js";
 
 const renderCartList = async () => { // async потому что делаем запрос данных к серверу
     const cartList = getCart();
-    console.log('cartList: ', cartList);
+    const allIdProduct = cartList.map(item => item.id) // получаю id всех добавленных в корзину продуктов
+    const data = await getData(`${API_URL}${PREFIX_PRODUCT}?list=${allIdProduct}`)//c помощь этих id запрашиваем данные с сервера:
+    //в cartList есть информация о кол-ве, а в data сами продукты
+    const countProduct = cartList.reduce((acc, item) => acc + item.count,0);
+    //общее количество товаров в корзине: 
+    orderCount.textContent = countProduct;
+
+    orderList.textContent = ''; //предварительно очищаем
+
+    const cartItems = data.map(item => {
+        const li = document.createElement('li');
+        li.classList.add('order__item');
+        li.dataset.idProduct = item.id;
+
+        const product = cartList.find((cartItem => cartItem.id == item.id))
+        li.innerHTML = `
+            <img class="order__image" src="${API_URL}/${item.image}" alt="${item.title}">
+            <div class="order__product">
+                <h3 class="order__product-title">${item.title}</h3>
+                <p class="order__product-weight">${item.weight}г</p>
+                <p class="order__product-price">${item.price}
+                    <span class="currency">₽</span>
+                </p>
+            </div>
+            <div class="order__product-count count">
+                <button class="count__minus">-</button>
+                <p class="count__amount">${product.count}</p>
+                <button class="count__plus">+</button>
+            </div>
+    `;
+    return li;
+    });
+
+    orderList.append(...cartItems)
+   
 }
 
 //функция обновления корзины:
