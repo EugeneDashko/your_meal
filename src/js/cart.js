@@ -3,7 +3,7 @@ import { catalogList, countAmount, modalProductBtn } from "./elements.js";
  const getCart = () => {
     const cartList = localStorage.getItem('cart'); // cart -идентификатор, может быть любым названием
     // в localstorage хронятся только строки (работает только с ними)
-    if (cartList) {
+    if (!!cartList) {
         return JSON.parse(cartList) // распарсиваем строку JSON в массив при помощи parse
     } else {                     // если в Localstorage ничего небыло, то возвращаем пустой массив:
         return [];
@@ -11,26 +11,26 @@ import { catalogList, countAmount, modalProductBtn } from "./elements.js";
 };
 
 
-// const renderCartList = async () => { // async потому что делаем запрос к серверу
-//     const cartList = getCart();
-// }
+const renderCartList = async () => { // async потому что делаем запрос данных к серверу
+    const cartList = getCart();
+    console.log('cartList: ', cartList);
+}
 
 //функция обновления корзины:
 const updateCartList = (cartList) => {
     localStorage.setItem('cart', JSON.stringify(cartList)) // stringify приводим к строке объект или массив cartList. cart -идентификатор
-    // renderCartList();
+    renderCartList();
 };
 
 const addCart = (id, count = 1) => {
-    console.log(id, count);
-    // const cartList = getCart();
-    // const product = cartList.find((item) => item.id === id)
-    // if(product) {
-    //     product.count += count //product.count = product.count + count
-    // } else {
-    //     cartList.push({id, count})
-    // }
-    // updateCartList(cartList)
+    const cartList = getCart();
+    const product = cartList.find((item) => item.id === id);
+    if(product) {
+        product.count += count //product.count = product.count + count
+    } else {
+        cartList.push({id, count})
+    }
+    updateCartList(cartList)
 };
 
 
@@ -53,5 +53,5 @@ const cartController = () => {
 
 export const cartInit = () => {
     cartController();
-    // renderCartList();
+    renderCartList();
 }

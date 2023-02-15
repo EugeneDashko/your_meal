@@ -16,4 +16,4 @@ export const countAmount = document.querySelector('.modal_product .count__amount
 
 export const orderCount = document.querySelector('.order__count');
 export const orderList = document.querySelector('.order__list');
-export const orderTotal = document.querySelector('.order__total');
+export const orderTotalAmount = document.querySelector('.order__total-amount');
