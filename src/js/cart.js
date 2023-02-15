@@ -2,7 +2,7 @@ import { catalogList, countAmount, modalProductBtn } from "./elements.js";
 
  const getCart = () => {
     const cartList = localStorage.getItem('cart'); // cart -идентификатор, может быть любым названием
-    // в localstorage хронятся только строки
+    // в localstorage хронятся только строки (работает только с ними)
     if (cartList) {
         return JSON.parse(cartList) // распарсиваем строку JSON в массив при помощи parse
     } else {                     // если в Localstorage ничего небыло, то возвращаем пустой массив:
@@ -22,15 +22,15 @@ const updateCartList = (cartList) => {
 };
 
 const addCart = (id, count = 1) => {
-    const cartList = getCart();
-    console.log('cartList: ', cartList);
-    const product = cartList.find((item) => item.id === id)
-    if(product) {
-        product.count += count //product.count = product.count + count
-    } else {
-        cartList.push({id, count})
-    }
-    updateCartList(cartList)
+    console.log(id, count);
+    // const cartList = getCart();
+    // const product = cartList.find((item) => item.id === id)
+    // if(product) {
+    //     product.count += count //product.count = product.count + count
+    // } else {
+    //     cartList.push({id, count})
+    // }
+    // updateCartList(cartList)
 };
 
 
@@ -47,7 +47,7 @@ const cartController = () => {
         }
     });
     modalProductBtn.addEventListener('click', () => {
-        addCart(modalProductBtn.dataset.idProduct,parseInt(countAmount.textContent)) // parseInt преобразует к целому числу
+        addCart(modalProductBtn.dataset.idProduct, parseInt(countAmount.textContent)) // parseInt преобразует к целому числу
     })
 };
 
