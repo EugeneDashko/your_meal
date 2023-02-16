@@ -34,7 +34,7 @@
 
 // если какой-то браузер не поддерживает focus-visible:
 
-@supporst  not selector(:focus-visible) {
+@supports  not selector(:focus-visible) {
     .navigation__button:focus {
     outline: 1px solid #F86310;
     outline-offset: -1px;

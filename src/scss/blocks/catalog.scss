@@ -53,7 +53,7 @@
             outline-color: #FFAB08 ;
         }
 }
-@supporst  not selector(:focus-visible) {
+@supports  not selector(:focus-visible) {
     .order__wrap-title:focus {
     outline: 1px solid #F86310;
     outline-offset: -1px;
