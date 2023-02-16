@@ -21,7 +21,7 @@ export const path = {
         images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,wepb}`,
         svg: `${srcFolder}/img/**/*.svg`,
         scss: `${srcFolder}/scss/style.scss`,
-        html: `${srcFolder}/*.html`, //bug
+        html: `${srcFolder}/*.*`, //bug
         files: `${srcFolder}/files/**/*.*`, //путь к папке с файлами которые будем копировать
         svgicons:`${srcFolder}/svgicons/*.svg`, // без отслеживания
     },
