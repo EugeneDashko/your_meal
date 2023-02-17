@@ -29,7 +29,7 @@ const renderCartList = async () => { // async потому что делаем �
         li.dataset.idProduct = item.id;
 
         const product = cartList.find((cartItem => cartItem.id == item.id));
-        console.log('product: ', product.count);
+
 
         li.innerHTML = `
             <img class="order__image" src="${API_URL}/${item.image}" alt="${item.title}">
