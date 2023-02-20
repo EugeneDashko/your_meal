@@ -278,6 +278,10 @@
         .order__wrap-title {
             margin-bottom: 12px;
             pointer-events: none;
+            cursor: default;
+            &:hover .order__title {
+                color: inherit; //что необходимо наследовать значение свойства у родительского элемента
+            }
             &::after {
                 content: none;
             }

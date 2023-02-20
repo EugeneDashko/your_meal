@@ -1,13 +1,14 @@
-import { catalogList, countAmount, modalProductBtn, orderCount, orderList } from "./elements.js";
+import { catalogList, countAmount, modalDelivery, modalProductBtn, order, orderCount, orderList, orderSubmit, orderTotalAmount, orderWrapTitle } from "./elements.js";
 import { getData } from "./getData.js";
 import { API_URL, PREFIX_PRODUCT} from "./const.js";
 
+//работа с сайтом, получение товара и его количества из localStorage:
  const getCart = () => {
     const cartList = localStorage.getItem('cart'); // cart -идентификатор, может быть любым названием
     // в localstorage хронятся только строки (работает только с ними)
     if (!!cartList) {
         return JSON.parse(cartList) // распарсиваем строку JSON в массив при помощи parse
-    } else {                     // если в Localstorage ничего небыло, то возвращаем пустой массив:
+    } else {                       // если в Localstorage ничего небыло, то возвращаем пустой массив:
         return [];
     }
 };
@@ -15,7 +16,8 @@ import { API_URL, PREFIX_PRODUCT} from "./const.js";
 
 const renderCartList = async () => { // async потому что делаем запрос данных к серверу
     const cartList = getCart();
-    const allIdProduct = cartList.map(item => item.id) // получаю id всех добавленных в корзину продуктов
+    orderSubmit.disabled = !cartList.length
+    const allIdProduct = cartList.map(item => item.id); // получаю id всех добавленных в корзину продуктов
     const data = cartList.length
     ? await getData(`${API_URL}${PREFIX_PRODUCT}?list=${allIdProduct}`)//c помощь этих id запрашиваем данные с сервера:
     : [];
@@ -45,17 +47,24 @@ const renderCartList = async () => { // async потому что делаем �
                 </p>
             </div>
             <div class="order__product-count count">
-                <button class="count__minus">-</button>
+                <button class="count__minus" data-id-product=${product.id}>-</button>
                 <p class="count__amount">${product.count}</p>
-                <button class="count__plus">+</button>
+                <button class="count__plus" data-id-product=${product.id}>+</button>
             </div>
     `;
     return li;
     });
 
     orderList.append(...cartItems)
-   
+
+    orderTotalAmount.textContent = data.reduce((acc, item) => {
+        const product =  cartList.find((cartItem => cartItem.id === item.id));
+        return acc + (item.price * product.count)
+    },0)
 }
+//добавляю цену
+
+
 
 //функция обновления корзины:
 const updateCartList = (cartList) => {
@@ -77,7 +86,15 @@ const addCart = (id, count = 1) => {
 
 
 const removeCart = (id) => {
+const cartList = getCart();
+const productIndex = cartList.findIndex((item) => item.id === id)
+cartList[productIndex].count -= 1;
 
+if(cartList[productIndex].count === 0) {
+    cartList.splice(productIndex, 1)
+}
+
+updateCartList(cartList)
 };
 
 
@@ -89,6 +106,30 @@ const cartController = () => {
     });
     modalProductBtn.addEventListener('click', () => {
         addCart(modalProductBtn.dataset.idProduct, parseInt(countAmount.textContent)) // parseInt преобразует к целому числу
+    })
+    orderList.addEventListener('click', ({target}) => {
+        const targetPlus = target.closest('.count__plus');
+        const targetMinus = target.closest('.count__minus');
+        if (targetPlus) {
+            addCart(targetPlus.dataset.idProduct)
+        }
+        if (targetMinus) {
+            removeCart(targetMinus.dataset.idProduct)
+        }
+    })
+
+    orderWrapTitle.addEventListener('click', () => {
+        order.classList.toggle('order_open')
+    })
+
+    orderSubmit.addEventListener('click', () => {
+        modalDelivery.classList.add('modal_open')
+    })
+
+    modalDelivery.addEventListener('click', ({target}) => {
+        if(target.closest('.modal__close') || modalDelivery === target) {
+            modalDelivery.classList.remove('modal_open')
+        }
     })
 };
 

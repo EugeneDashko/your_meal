@@ -1,4 +1,5 @@
 import { navigationList, navigationListItems, catalogTitle } from "./elements.js";
+import { renderListProduct } from "./renderListProduct.js";
 
 //фу, которая будет управлять нашим списком:
 export const navigationListController = () => { // cd - функция renderListProduct(), которую взовем ниже в функции navigationListController

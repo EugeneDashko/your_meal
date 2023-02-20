@@ -5,6 +5,7 @@
     cursor: pointer;
     overflow-y: auto; // чтобы скролилось, если не помещается на экране повертикали
     display: none;
+    z-index: 20;
 }
 
 .modal_open {
