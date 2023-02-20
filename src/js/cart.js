@@ -1,6 +1,7 @@
 import { catalogList, countAmount, modalDelivery, modalProductBtn, order, orderCount, orderList, orderSubmit, orderTotalAmount, orderWrapTitle } from "./elements.js";
 import { getData } from "./getData.js";
 import { API_URL, PREFIX_PRODUCT} from "./const.js";
+import { orderController } from "./orderController.js";
 
 //работа с сайтом, получение товара и его количества из localStorage:
  const getCart = () => {
@@ -136,4 +137,5 @@ const cartController = () => {
 export const cartInit = () => {
     cartController();
     renderCartList();
+    orderController(getCart);
 }
