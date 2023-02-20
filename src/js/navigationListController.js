@@ -1,7 +1,7 @@
 import { navigationList, navigationListItems, catalogTitle } from "./elements.js";
 
 //фу, которая будет управлять нашим списком:
-export const navigationListController = (cb) => { // cd - функция renderListProduct(), которую взовем ниже в функции navigationListController
+export const navigationListController = () => { // cd - функция renderListProduct(), которую взовем ниже в функции navigationListController
     navigationList.addEventListener('click', (e) => { //делигирование
         const categoryItem = e.target.closest('.navigation__button'); // получаю кнопку меню (десерты, закуски снэки ...)
 
@@ -14,7 +14,7 @@ export const navigationListController = (cb) => { // cd - функция renderL
                 catalogTitle.textContent = item.textContent; // меняем на новое название заголовок каталога
 
                 // и начинаю формировать новый каталок под выбранную категорию меню:
-                cb(item.dataset.category); // вызываю функцию renderListProduct(item.dataset.category).   item.dataset - прописано в верстке: data-category="snack"
+                renderListProduct(item.dataset.category); // вызываю функцию renderListProduct(item.dataset.category).   item.dataset - прописано в верстке: data-category="snack"
             } else {
                 item.classList.remove('navigation__button_active')
             }

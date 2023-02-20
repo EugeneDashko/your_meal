@@ -1,6 +1,7 @@
 import { catalogList, countAmount, modalProductBtn, orderCount, orderList } from "./elements.js";
 import { getData } from "./getData.js";
 import { API_URL, PREFIX_PRODUCT} from "./const.js";
+
  const getCart = () => {
     const cartList = localStorage.getItem('cart'); // cart -идентификатор, может быть любым названием
     // в localstorage хронятся только строки (работает только с ними)
@@ -15,7 +16,10 @@ import { API_URL, PREFIX_PRODUCT} from "./const.js";
 const renderCartList = async () => { // async потому что делаем запрос данных к серверу
     const cartList = getCart();
     const allIdProduct = cartList.map(item => item.id) // получаю id всех добавленных в корзину продуктов
-    const data = await getData(`${API_URL}${PREFIX_PRODUCT}?list=${allIdProduct}`)//c помощь этих id запрашиваем данные с сервера:
+    const data = cartList.length
+    ? await getData(`${API_URL}${PREFIX_PRODUCT}?list=${allIdProduct}`)//c помощь этих id запрашиваем данные с сервера:
+    : [];
+
     //в cartList есть информация о кол-ве, а в data сами продукты
     const countProduct = cartList.reduce((acc, item) => acc + item.count,0);
     //общее количество товаров в корзине: 
