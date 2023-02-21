@@ -19,7 +19,7 @@ import { cartInit } from "./cart.js";
   }
 
 
-// наверишваем слушателя на каталог
+// навешваем слушателя на каталог
 catalogList.addEventListener('click', (e) => {
   const target = e.target;
   if (target.closest('.product_detail') || target.closest('.product__image')) { // если  картинка или детали

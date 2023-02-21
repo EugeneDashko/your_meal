@@ -3,6 +3,7 @@ import { API_URL } from "./const.js";
 
 //создаем карточки из базы данных:
 export const createCartProduct = (product) => { // в product попадет массив listProduct
+
     const li = document.createElement('li'); // создаю li элмент
     li.classList.add('catalog__item');// добавляю класс li элементу
 
