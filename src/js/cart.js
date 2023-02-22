@@ -14,7 +14,6 @@ import { orderController } from "./orderController.js";
     }
 };
 
-
 const renderCartList = async () => { // async потому что делаем запрос данных к серверу
     const cartList = getCart();
     orderSubmit.disabled = !cartList.length
@@ -22,7 +21,6 @@ const renderCartList = async () => { // async потому что делаем �
     const data = cartList.length
     ? await getData(`${API_URL}${PREFIX_PRODUCT}?list=${allIdProduct}`)//c помощь этих id запрашиваем данные с сервера:
     : [];
-
     //в cartList есть информация о кол-ве, а в data сами продукты
     const countProduct = cartList.reduce((acc, item) => acc + item.count,0);
     //общее количество товаров в корзине: 
@@ -56,10 +54,14 @@ const renderCartList = async () => { // async потому что делаем �
     return li;
     });
 
+    orderList.textContent = '';
     orderList.append(...cartItems)
 
+//считаю общую сумму заказа
     orderTotalAmount.textContent = data.reduce((acc, item) => {
+        //нахожу элемент в cartList и возвращаю его в product
         const product =  cartList.find((cartItem => cartItem.id === item.id));
+        console.log('product: ', product);
         return acc + (item.price * product.count)
     },0)
 }
@@ -99,6 +101,13 @@ updateCartList(cartList)
 };
 
 
+//очищаю заказ:
+export const clearCart = () => {
+    localStorage.removeItem('cart');
+    renderCartList();
+}
+
+
 const cartController = () => {
     catalogList.addEventListener('click', ({target}) => { //через деструктуризацию вытаскиваем из event  target
         if(target.closest('.product__add')) { // когда кликнули по кнопке - вызываем фу addCart
@@ -108,6 +117,9 @@ const cartController = () => {
     modalProductBtn.addEventListener('click', () => {
         addCart(modalProductBtn.dataset.idProduct, parseInt(countAmount.textContent)) // parseInt преобразует к целому числу
     })
+
+
+    //побытия по кнопка ПЛЮС И МИНУС
     orderList.addEventListener('click', ({target}) => {
         const targetPlus = target.closest('.count__plus');
         const targetMinus = target.closest('.count__minus');

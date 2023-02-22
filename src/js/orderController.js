@@ -1,3 +1,4 @@
+import { clearCart } from "./cart.js"
 import { modalDeliveryForm } from "./elements.js"
 
 export const orderController = (getCart) => {
@@ -14,12 +15,17 @@ export const orderController = (getCart) => {
     modalDeliveryForm.addEventListener('submit', e => {
         e.preventDefault();
         const formData = new FormData(modalDeliveryForm);
-        // console.log(Object.fromEntries(formData))
         const data = Object.fromEntries(formData);
         data.order = getCart();
-        console.log('data.order: ', data.order);
 
         //отправка заказа на сервер
-        fetch('https://reqres.in/api/users')
+        fetch('https://reqres.in/api/users', {
+            method: 'post',
+            body: JSON.stringify(data),
+        }).then(response => response.json())
+        .then(data => {
+            clearCart(); //очищаю корзину заказа
+            modalDeliveryForm.reset() //очищаю форму
+        })
     })
 }
